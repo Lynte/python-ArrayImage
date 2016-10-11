@@ -5,7 +5,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 import os
 
-class textimage():
+class TextImage():
 
     def __init__(self, texts):
         self.texts = texts
