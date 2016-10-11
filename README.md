@@ -1,4 +1,4 @@
-##arrayImage
+##ArrayImage
 change texts array into image and paste it on a image
 
 ##usage
