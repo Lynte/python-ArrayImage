@@ -1,8 +1,5 @@
 import matplotlib.pyplot as plt
-import numpy as np
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
+from PIL import Image, ImageDraw, ImageFont
 import os
 
 class TextImage():

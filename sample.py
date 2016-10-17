@@ -1,4 +1,4 @@
-from araryImage import textimage
+from ArrayImage import TextImage
 from PIL import Image
 
 def main():
