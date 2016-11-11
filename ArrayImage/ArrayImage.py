@@ -4,11 +4,12 @@ import os
 
 class TextImage():
 
-    def __init__(self, texts):
+    def __init__(self, texts, font='/Library/Fonts/Times New Roman.ttf', 
+            occupancy=1.0, iscenter=True):
         self.texts = texts
-        self.fontname = '/Library/Fonts/Times New Roman.ttf'
-        self.occupancy = 1.0
-        self.center = True
+        self.fontname = font
+        self.occupancy = occupancy
+        self.center = iscenter
 
     def __call__(self, image, x1, y1, x2, y2):
         if not os.path.exists(self.fontname):
@@ -23,12 +24,8 @@ class TextImage():
         for i, text in enumerate(self.texts):
             draw.text((0, textheight*i), text, font=font, fill='#000')
         centerize = 0.5 if self.center else 1
-        image.paste(img, (x1, y1 + int(textheight*(1-self.occupancy)*centerize)), img)
+        pastedimage = image.copy()
+        pastedimage.paste(img, (x1,
+            y1 + int(textheight*(1-self.occupancy)*centerize)), img)
 
-        return image
-
-    def settings(self, fontname='/Library/Fonts/Times New Roman.ttf', occupancy=1.0, center=True):
-        self.fontname=fontname
-        self.occupancy = occupancy
-        self.center = center
-
+        return pastedimage
