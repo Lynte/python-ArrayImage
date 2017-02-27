@@ -1,12 +1,13 @@
 from ArrayImage.ArrayImage import TextImage
 from PIL import Image
 
+
 def main():
     texts = ['text{}'.format(i) for i in range(12)]
     image = Image.open('sample.png')
 
-    textimg = TextImage(texts, occupancy=0.6)
-    image = textimg(image, 220, 200, 800, 800)
+    textimg = TextImage(occupancy=0.6)
+    image = textimg(image, texts, 220, 200, 800, 800)
     image.save('output.png')
 
 if __name__ == '__main__':

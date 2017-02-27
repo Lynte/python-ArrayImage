@@ -7,12 +7,11 @@ class TextImage():
 
     def __init__(self, texts, font='/Library/Fonts/Times New Roman.ttf',
                  occupancy=1.0, iscenter=True):
-        self.texts = texts
         self.fontname = font
         self.occupancy = occupancy
         self.center = iscenter
 
-    def __call__(self, image, x1, y1, x2, y2):
+    def __call__(self, image, texts, x1, y1, x2, y2):
         if not os.path.exists(self.fontname):
             print('Fontname {} is not exist'.format(self.fontname))
 
@@ -23,7 +22,7 @@ class TextImage():
         font = ImageFont.truetype(
             self.fontname, int(textheight * self.occupancy))
         # make image with texts
-        for i, text in enumerate(self.texts):
+        for i, text in enumerate(texts):
             draw.text((0, textheight * i), text, font=font, fill='#000')
         centerize = 0.5 if self.center else 1
         pastedimage = image.copy()
