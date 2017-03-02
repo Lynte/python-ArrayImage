@@ -21,9 +21,16 @@ class TextImage():
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype(
             self.fontname, int(textheight * self.occupancy), encoding='unic')
+
         # make image with texts
         for i, text in enumerate(texts):
-            draw.text((0, textheight * i), text, font=font, fill='#000')
+            sfont = font
+            textsize = font.getsize(text)
+            if textsize[0] > (x2-x1) :
+                fontscale = (x2-x1) / textsize[0]
+                sfont = ImageFont.truetype(self.fontname, int(textheight * self.occupancy)*fontscale, encoding='unic')
+            draw.text((0, textheight * i), text, font=sfont, fill='#000')
+
         centerize = 0.5 if self.center else 1
         pastedimage = image.copy()
         pastedimage.paste(
