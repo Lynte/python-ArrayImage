@@ -28,7 +28,7 @@ class TextImage():
             textsize = font.getsize(text)
             if textsize[0] > (x2-x1) :
                 fontscale = (x2-x1) / textsize[0]
-                sfont = ImageFont.truetype(self.fontname, int(textheight * self.occupancy * fontscale), encoding='unic')
+                sfont = ImageFont.truetype(self.fontname, int(textheight * self.occupancy * fontscale)-1, encoding='unic')
             draw.text((0, textheight * i), text, font=sfont, fill='#000')
 
         centerize = 0.5 if self.center else 1
