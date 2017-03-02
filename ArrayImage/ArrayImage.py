@@ -5,7 +5,7 @@ import os
 
 class TextImage():
 
-    def __init__(self, texts, font='/Library/Fonts/Times New Roman.ttf',
+    def __init__(self, font='/Library/Fonts/Times New Roman.ttf',
                  occupancy=1.0, iscenter=True):
         self.fontname = font
         self.occupancy = occupancy
