@@ -20,7 +20,7 @@ class TextImage():
         img = Image.new('RGBA', (x2 - x1, y2 - y1), (255, 255, 255, 0))
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype(
-            self.fontname, int(textheight * self.occupancy))
+            self.fontname, int(textheight * self.occupancy), encoding='unic')
         # make image with texts
         for i, text in enumerate(texts):
             draw.text((0, textheight * i), text, font=font, fill='#000')
