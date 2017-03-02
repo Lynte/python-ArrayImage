@@ -15,7 +15,7 @@ class TextImage():
         if not os.path.exists(self.fontname):
             print('Fontname {} is not exist'.format(self.fontname))
 
-        length = len(self.texts)
+        length = len(texts)
         textheight = (y2 - y1) / length
         img = Image.new('RGBA', (x2 - x1, y2 - y1), (255, 255, 255, 0))
         draw = ImageDraw.Draw(img)
