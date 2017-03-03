@@ -3,8 +3,8 @@ from PIL import Image
 
 
 def main():
-    texts = ['text{}'.format(i) for i in range(11)]
-    texts += ['oaheuthatoenuhntaeouheteohauthteoatehaoutnhutenoahtnseahouhaoeuhtnhut']
+    texts = ['text{}'.format(i) for i in range(10)]
+    texts += ['oaheuthatoenuhntaeouheteohauthteoatehaoutnhutenoahtnseahouhaoeuhtnhut']*2
     image = Image.open('sample.png')
 
     textimg = TextImage(occupancy=0.6)
